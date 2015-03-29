@@ -21,6 +21,7 @@ cd $DIR
 
 tar xf Faience.tar.gz 2>/dev/null
 tar xf Faience-Azur.tar.gz 2>/dev/null
+tar xf Faience-Titanic.tar.gz 2>/dev/null
 tar xf Faience-Ocre.tar.gz 2>/dev/null
 tar xf Faience-Claire.tar.gz 2>/dev/null
 
@@ -29,7 +30,7 @@ then
 	echo
 	read -p "An existing installation have been detected in $HOME/.icons. Remove it previously ? [Y]es, [N]o :" response
 	case $response in
-		[Yy]* ) rm -Rf "$HOME/.icons/Faience" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Azur" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Ocre" 2>/dev/null; rm -Rf $HOME/.icons/Faience-Claire 2>/dev/null;;
+		[Yy]* ) rm -Rf "$HOME/.icons/Faience" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Azur" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Titanic" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Ocre" 2>/dev/null; rm -Rf $HOME/.icons/Faience-Claire 2>/dev/null;;
 	    * ) ;;
 	esac
 fi
@@ -41,19 +42,21 @@ then
 		echo
 		read -p "An existing installation has been detected in /usr/share/icons. Remove it previously ? [Y]es, [N]o :" response
 		case $response in
-			[Yy]* ) rm -Rf /usr/share/icons/Faience 2>/dev/null; rm -Rf /usr/share/icons/Faience-Azur 2>/dev/null; rm -Rf /usr/share/icons/Faience-Ocre; rm -Rf /usr/share/icons/Faience-Claire;;
+			[Yy]* ) rm -Rf /usr/share/icons/Faience 2>/dev/null; rm -Rf /usr/share/icons/Faience-Azur 2>/dev/null;  rm -Rf /usr/share/icons/Faience-Titanic 2>/dev/null; rm -Rf /usr/share/icons/Faience-Ocre; rm -Rf /usr/share/icons/Faience-Claire;;
 		    * ) ;;
 		esac
 		echo
 	fi
 	cp -R ./Faience/ /usr/share/icons/
 	cp -R ./Faience-Azur/ /usr/share/icons/
+	cp -R ./Faience-Titanic/ /usr/share/icons/
 	cp -R ./Faience-Ocre/ /usr/share/icons/
 	cp -R ./Faience-Claire/ /usr/share/icons/
 	install_dir=/usr/share/icons/
 else
 	cp -R ./Faience/ "$HOME/.icons/"
 	cp -R ./Faience-Azur/ "$HOME/.icons/"
+	cp -R ./Faience-Titanic/ "$HOME/.icons/"
 	cp -R ./Faience-Ocre/ "$HOME/.icons/"
 	cp -R ./Faience-Claire/ "$HOME/.icons/"
 	install_dir="$HOME/.icons/"

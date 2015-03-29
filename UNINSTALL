@@ -1,0 +1,33 @@
+#!/bin/bash
+# Uninstall script for Faience icon themes
+# Written by Tiheum (matthieu.james@gmail.com)
+
+ROOT_UID=0
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+	echo "Faience icon themes installed in $HOME/.icons will be removed."
+else
+	echo "Faience icon themes installed in /usr/share/icons will be removed."
+fi
+read -p "Do you want to continue ? [Y]es, [N]o : " response
+case $response in
+	[Yy]* ) ;;
+    [Nn]* ) exit 99;;
+    * ) echo "Wrong value: uninstall aborted."; exit 1;;
+esac
+
+if [ "$UID" -eq "$ROOT_UID" ]
+then
+	rm -Rf /usr/share/icons/Faience 2>/dev/null
+	rm -Rf /usr/share/icons/Faience-Azur 2>/dev/null
+	rm -Rf /usr/share/icons/Faience-Ocre 2>/dev/null
+	rm -Rf /usr/share/icons/Faience-Claire 2>/dev/null
+else
+	rm -Rf $HOME/.icons/Faience 2>/dev/null
+	rm -Rf $HOME/.icons/Faience-Azur 2>/dev/null
+	rm -Rf $HOME/.icons/Faience-Ocre 2>/dev/null
+	rm -Rf $HOME/.icons/Faience-Claire 2>/dev/null
+fi
+
+echo "Uninstall complete."
+exit 0

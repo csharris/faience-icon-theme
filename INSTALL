@@ -1,0 +1,64 @@
+#!/bin/bash
+# Installation script for Faience icon themes
+# Written by Tiheum (matthieu.james@gmail.com)
+
+ROOT_UID=0
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+	echo "Icon themes will be installed in $HOME/.icons. To make them available for all users, run this script as root."
+else
+	echo "Icon themes will be installed in /usr/share/icons and are available for all users."
+fi
+read -p "Do you want to continue ? [Y]es, [N]o : " response
+case $response in
+	[Yy]* ) ;;
+    [Nn]* ) exit 99;;
+    * ) echo "Wrong value: installaton aborted."; exit 1;;
+esac
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+cd $DIR
+
+tar xf Faience.tar.gz 2>/dev/null
+tar xf Faience-Azur.tar.gz 2>/dev/null
+tar xf Faience-Ocre.tar.gz 2>/dev/null
+tar xf Faience-Claire.tar.gz 2>/dev/null
+
+if [ -d $HOME/.icons/Faience ]
+then
+	echo
+	read -p "An existing installation have been detected in $HOME/.icons. Remove it previously ? [Y]es, [N]o :" response
+	case $response in
+		[Yy]* ) rm -Rf "$HOME/.icons/Faience" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Azur" 2>/dev/null; rm -Rf "$HOME/.icons/Faience-Ocre" 2>/dev/null; rm -Rf $HOME/.icons/Faience-Claire 2>/dev/null;;
+	    * ) ;;
+	esac
+fi
+
+if [ "$UID" -eq "$ROOT_UID" ]
+then
+	if [ -d /usr/share/icons/Faience ]
+	then
+		echo
+		read -p "An existing installation has been detected in /usr/share/icons. Remove it previously ? [Y]es, [N]o :" response
+		case $response in
+			[Yy]* ) rm -Rf /usr/share/icons/Faience 2>/dev/null; rm -Rf /usr/share/icons/Faience-Azur 2>/dev/null; rm -Rf /usr/share/icons/Faience-Ocre; rm -Rf /usr/share/icons/Faience-Claire;;
+		    * ) ;;
+		esac
+		echo
+	fi
+	cp -R ./Faience/ /usr/share/icons/
+	cp -R ./Faience-Azur/ /usr/share/icons/
+	cp -R ./Faience-Ocre/ /usr/share/icons/
+	cp -R ./Faience-Claire/ /usr/share/icons/
+	install_dir=/usr/share/icons/
+else
+	cp -R ./Faience/ "$HOME/.icons/"
+	cp -R ./Faience-Azur/ "$HOME/.icons/"
+	cp -R ./Faience-Ocre/ "$HOME/.icons/"
+	cp -R ./Faience-Claire/ "$HOME/.icons/"
+	install_dir="$HOME/.icons/"
+fi
+
+echo
+echo "Installation complete. Enjoy !"
+exit 0

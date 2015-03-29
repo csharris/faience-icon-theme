@@ -1,0 +1,28 @@
+0.5.1
+=====
+* New weather symbolic icons
+* Fix a broken link
+0.5
+===
+* New apps: UbuntuOne Music and Ubuntu Online Accounts
+* New designs for desktop, remote desktop, wallpaper, GDM setup, session properties, Terminal, Xterm, Twitter, Spotify and adressbook
+* Updated blue folders color
+* Icons for system settings categories on Ubuntu
+* New symbolic icons
+* Fix some missing links
+0.3
+===
+* New apps: Blender, Compiz Config Settings Manager, Desura, File-roller, Gajim, Gmail, Google Music Frame, Mail notification, System monitor
+* New mimetyes: Archive, Deb package, Rpm package, 7zip, Jar, Gzip, Ace, Rar, Zip
+* New icons sizes: 64x64 and 96x96
+* Symbolic weather icons reworked
+* Fixes some missing links
+0.2
+===
+* New apps: Application default icon, Baobab, Brasero, Config users, Deja-dup, Gcolor2, Gconf editor, Gnome documents, Gnome contacts, Gnome online accounts, Clementine, Gwibber, Google chrome, Google Plus, Gparted, iBus, Indicator Weather, Libreoffice, Palimpsest, preferences-color, preferences-desktop-accessibility, preferences-desktop-locale, preferences-system-bluetooth, Screenruler, Steam, Synaptic, Update manager, time-admin, Tracker, Thunderbird, Totem, Ubuntuone, Usb creator, Vlc, web-browser, Wunderlist, Xterm
+* New devices: all drives, tablet, network wired, network wireless, VPN, system harddisk
+* Some new actions (especially for mails)
+* Some new status icons and one new theme (Faience-Claire) for an embryonic integration with Unity in Ubuntu 11.10
+0.1
+===
+* First public release
